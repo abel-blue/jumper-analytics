@@ -8,9 +8,9 @@ docker network create backend_network
 
 echo "Building backend container ..."
 @REM docker-compose build --no-cache
-docker-compose build
+docker-compose -f docker-compose.yml build
 
 echo "Starting backend container..."
-docker-compose -f docker-compose.yml up -d
+docker-compose -f docker-compose.yml up --remove-orphans --force-recreate -d
 
 echo "Backend container started successfully!"
