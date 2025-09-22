@@ -1,0 +1,59 @@
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data 
+    networks:
+      - backend_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: MySQLRoot#987
+      MYSQL_DATABASE: auth_db
+      MYSQL_USER: auth_user
+      MYSQL_PASSWORD: auth_password
+    ports:
+      - "3307:3306"
+    expose:
+      - 3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend_network
+
+  backend:
+    container_name: backend
+    build:
+      context: ./
+      dockerfile: dockerfile.backend
+    image: backend:latest
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    environment:
+      - REDIS_HOST=redis     
+      - REDIS_PORT=6379
+      - AUTH_DB_HOST=mysql
+      - AUTH_DB_PORT=3306
+      - AUTH_DB_USER=auth_user
+      - AUTH_DB_PASSWORD=auth_password
+      - AUTH_DB=auth_db
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+  redis_data:
