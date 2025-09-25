@@ -1,5 +1,3 @@
-<h1 style="text-align: center;">Jumper Media Analytics</h1>
-
 <p align="center">
   <img src="assets/others/jumper_media_layout.png" alt="Description" width="300"/>
 </p>
