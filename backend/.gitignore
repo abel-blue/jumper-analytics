@@ -108,6 +108,8 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+app/api/api_v1/handlers/sample.py
+
 # IPython
 profile_default/
 ipython_config.py
