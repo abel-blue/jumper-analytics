@@ -1,2 +1,4 @@
 .vscode/
 template/prompt.txt
+template/prompt_*.txt
+bin/arm64
