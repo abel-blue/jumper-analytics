@@ -83,4 +83,7 @@
     ```
       
   * After running the script, you can find the binary build for  Windows in `bin/win.zip`
-  
+
+
+### ✅ Next See:
+**[How to run the application - use case](usecase.md)**

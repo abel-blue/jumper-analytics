@@ -210,7 +210,7 @@ This structure enables comprehensive analysis from the author level down to indi
 
 ### SQL Schemas & Analytical Queries
 
-All SQL schemas, table creation scripts, data inserts, and analytical queries referenced in this documentation can be found in this link:  
+All SQL schemas can be found in this link:
 
 [Access SQL Schemas & Queries](../backend/app/sql/commands/com/jumper/insight/)
 
