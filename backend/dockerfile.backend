@@ -7,7 +7,8 @@ FROM --platform=linux/amd64 python:${PYTHON_VERSION}-slim AS base
 # Install necessary build dependencies and unixODBC
 RUN apt-get update && \
     apt-get install -y gcc python3-dev pkg-config libhdf5-dev default-libmysqlclient-dev \
-        unixodbc unixodbc-dev unzip odbcinst curl gnupg lsb-release sudo apt-transport-https ca-certificates libtool m4 libaio1 libaio-dev \
+        libpq-dev libssl-dev libffi-dev unixodbc unixodbc-dev unzip odbcinst curl \
+        gnupg lsb-release sudo apt-transport-https ca-certificates libtool m4 libaio1 libaio-dev \
         openssl wget netcat-openbsd libncurses5 libtinfo5 libnsl2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
